@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  carbon-c-relay-proxy:
+    container_name: carbon-c-relay-proxy
+    image: registry.xxx.com/infra/carbon-c-relay-proxy:v0.1.0
+    network_mode: host
+    restart: always
+    command:
+      - '--listenAddr=:2014'
+      - '--remoteAddr=192.168.1.213:2004,192.168.1.219:2004'
+    ports:
+      - 2014:2014
